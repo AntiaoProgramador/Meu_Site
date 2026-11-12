@@ -459,9 +459,43 @@ h2 {
   padding: 24px 32px;
 }
 
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+.navigation a,
+.header-button,
+.text-link,
+.social-links a {
+  min-height: 44px;
+}
+
+.menu-button {
+  cursor: pointer;
+}
+
 @media (max-width: 760px) {
+  body {
+    overflow-x: hidden;
+  }
+
   .site-header {
-    padding: 22px 20px;
+    min-height: 70px;
+    padding: 18px 20px;
+    position: relative;
+  }
+
+  .brand {
+    font-size: 1.4rem;
   }
 
   .navigation,
@@ -470,51 +504,138 @@ h2 {
   }
 
   .menu-button {
-    display: block;
+    align-items: center;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    display: flex;
+    font-size: 1.3rem;
+    height: 44px;
+    justify-content: center;
+    padding: 0;
+    width: 44px;
   }
 
   .navigation.is-open {
+    align-items: stretch;
     background: var(--paper);
+    border-bottom: 1px solid var(--line);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 0;
     left: 0;
-    padding: 25px 20px;
+    margin: 0;
+    padding: 12px 20px 20px;
     position: absolute;
     right: 0;
     top: 70px;
-    z-index: 3;
+    z-index: 10;
+  }
+
+  .navigation.is-open a {
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    color: var(--ink);
+    min-height: 52px;
+  }
+
+  .navigation.is-open a:last-child {
+    border-bottom: 0;
   }
 
   .section-shell {
-    padding: 75px 20px;
+    padding: 72px 20px;
   }
 
   .hero {
     display: block;
     min-height: auto;
-    padding-top: 65px;
+    padding-top: 58px;
   }
 
-  .hero h1 {
-    font-size: clamp(3rem, 15vw, 5rem);
+  .eyebrow {
+    font-size: 0.67rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: clamp(2.8rem, 14vw, 4.5rem);
+    line-height: 0.98;
+  }
+
+  h2 {
+    font-size: clamp(2.4rem, 12vw, 3.6rem);
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    margin: 25px 0 30px;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .button-primary {
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-actions .text-link {
+    align-self: flex-start;
   }
 
   .hero-visual {
-    height: 330px;
-    margin-top: 60px;
+    height: 310px;
+    margin-top: 58px;
+    width: 100%;
   }
 
   .orb-large {
-    height: 200px;
-    width: 200px;
+    height: clamp(170px, 52vw, 220px);
+    right: -5%;
+    top: 8%;
+    width: clamp(170px, 52vw, 220px);
+  }
+
+  .orb-small {
+    bottom: 8%;
+    height: 82px;
+    left: 8%;
+    width: 82px;
   }
 
   .code-card {
-    left: 12%;
-    top: 25%;
-    transform: rotate(-4deg) scale(0.85);
-    transform-origin: left top;
+    left: 50%;
+    max-width: 270px;
+    padding: 18px 20px 21px;
+    top: 27%;
+    transform: translateX(-50%) rotate(-4deg);
+    width: 78%;
+  }
+
+  .code-card code {
+    font-size: 0.78rem;
+  }
+
+  .floating-label {
+    font-size: 0.58rem;
+    padding: 7px 8px;
+  }
+
+  .label-top {
+    right: 5%;
+    top: 14%;
+  }
+
+  .label-bottom {
+    bottom: 12%;
+    right: 6%;
   }
 
   .about {
@@ -522,7 +643,15 @@ h2 {
   }
 
   .about-content {
-    padding-top: 35px;
+    padding-top: 32px;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+  }
+
+  .section-heading.compact {
+    margin-bottom: 38px;
   }
 
   .skill-grid,
@@ -530,31 +659,77 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .skill-card {
+    padding: 23px;
+  }
+
   .skill-card h3 {
-    margin-top: 35px;
+    font-size: 1.4rem;
+    margin: 32px 0 10px;
   }
 
-  .project-heading {
-    align-items: start;
-    display: block;
-  }
-
-  .section-note {
+  .skill-tags {
     margin-top: 25px;
   }
 
+  .project-heading {
+    align-items: flex-start;
+    display: block;
+    margin-bottom: 38px;
+  }
+
+  .section-note {
+    margin-top: 20px;
+  }
+
+  .project-preview {
+    height: 190px;
+  }
+
+  .preview-symbol {
+    font-size: 5rem;
+  }
+
+  .project-info {
+    padding: 21px 22px 25px;
+  }
+
+  .project-info h3 {
+    font-size: 1.4rem;
+  }
+
+  .contact {
+    padding-bottom: 80px;
+  }
+
+  .contact-description {
+    font-size: 0.98rem;
+  }
+
+  .contact-email {
+    font-size: clamp(1.05rem, 5vw, 1.5rem);
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
   .social-links {
-    flex-wrap: wrap;
-    margin-top: 50px;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 45px;
+  }
+
+  .social-links a {
+    align-items: center;
+    display: flex;
   }
 
   .site-footer {
-    display: block;
-    padding: 20px;
-  }
-
-  .site-footer span {
-    display: block;
-    margin: 5px 0;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 22px 20px;
+    text-align: center;
   }
 }
